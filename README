@@ -1,0 +1,19 @@
+AbstractFactoryDemo
+
+I've had a few people ask me how I do the Data Access Object transcations in Java with my projects.  So, to that end, I thought it would be a good idea to put it on Github for everyone to use.
+
+The dbschema directory contains a single sql file with one table, I used MySQL as a starting point but any database will be fine, it's just a case of editing things to your needs.
+
+So with MySQL you would first create your database:
+mysqladmin -u [yourdbuser] -p[yourdbpassword] create mydemodb
+
+Then run the schema sql:
+mysql -u [yourdbuser] -p[yourdbpassword] mydemodb < ./dbschema/schema.sql
+
+The rest of the code is pretty self explanatory but if you have any questions you can email me at jasebell@gmail.com, mention the AbstractFactoryDemo in your subject so I know what it's about.
+
+The DAO class contains the main work between the database and Java.  Whether you use some form of object mapping (like Hibernate) or just plain JDBC connections is entirely up to you and it's easy enough to change the code to your needs.
+
+I use a JNDI naming context from my web container and that acts as my connection pool as well. 
+
+
